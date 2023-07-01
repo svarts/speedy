@@ -1,5 +1,5 @@
 import tkinter as tk 
-import speedtest 
+import speedtest_cli as speedtest
 
 root = tk.Tk()
 label = tk.Label(root, text="Hello, tkinter!")
