@@ -7,6 +7,19 @@ root.geometry("310x550")
 root.resizable(False, False)
 root.configure(bg="#1f1d2d")
 
+def Checkbutton():
+    test = speedtest.Speedtest()
+
+    Uploading = test.upload()
+    print(Uploading)
+
+    downloading = test.download()
+    print(downloading)
+
+    servernames = []
+    test.get_servers(servernames)
+    print(test.results.ping)
+    
 #icon
 image_icon = tk.PhotoImage(file='img/logo.png')
 root.iconphoto(False, image_icon)
@@ -19,7 +32,7 @@ Main = tk.PhotoImage(file='img/main.png')
 label = tk.Label(root, image=Main, bg='#1f1d2d').pack(pady=(5,0)) 
 
 button = tk.PhotoImage(file='img/button.png')
-Button = tk.Button(root, image=button, bg="#1f1d2d", bd="0", activebackground="#1f1d2d", width=199, height=49, cursor="hand")
+Button = tk.Button(root, image=button, bg="#1f1d2d", bd="0", activebackground="#1f1d2d", width=199, height=49, cursor="hand", command=tk.Checkbutton)
 Button.configure(bg="#1f1d2d")
 Button.pack(pady=5)
 
@@ -35,7 +48,20 @@ tk.Label(root, text='MS', font='helvetica 10 normal', bg='#0E0D1B', fg='white').
 tk.Label(root, text='MBPS', font='helvetica 10 normal', bg='#0E0D1B', fg='white').place(x=140, y=92)
 tk.Label(root, text='MBPS', font='helvetica 10 normal', bg='#0E0D1B', fg='white').place(x=234, y=92)
 
-tk.Label(root, text='Download', font='helvetica 16 normal', bg='#0E0D1B', fg='white').place(x=140, y=280)
-tk.Label(root, text='MBPS', font='helvetica 16 normal', bg='#0E0D1B', fg='white').place(x=155, y=380)
+tk.Label(root, text='Download', font='helvetica 16 normal', bg='#0E0D1B', fg='white').place(x=120, y=260)
+tk.Label(root, text='MBPS', font='helvetica 16 normal', bg='#0E0D1B', fg='white').place(x=132, y=370)
+
+ping = tk.Label(root, text='00', font='helvetica 16 normal',bg='#0E0D1B', fg='white')
+ping.place(x=52, y=64)
+
+download = tk.Label(root, text='00', font='helvetica 16 normal',bg='#0E0D1B', fg='white')
+download.place(x=145, y=64)
+
+upload = tk.Label(root, text='00', font='helvetica 16 normal',bg='#0E0D1B', fg='white')
+upload.place(x=238, y=64)
+
+Download = tk.Label(root, text='00', font='helvetica 38 bold',bg='#0E0D1B', fg='aqua')
+Download.place(x=160, y=320, anchor='center')
 
 root.mainloop()
+
