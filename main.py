@@ -10,15 +10,16 @@ root.configure(bg="#1f1d2d")
 def Checkbutton():
     test = speedtest.Speedtest()
 
-    Uploading = test.upload()
-    print(Uploading)
+    Uploading = round(test.upload()/(1024*1024),2)
+    upload.config(text=Uploading)
 
-    downloading = test.download()
-    print(downloading)
+    downloading = round(test.download()/(1024*1024),2)
+    download.config(text=downloading)
+    Download.config(text=downloading)
 
     servernames = []
     test.get_servers(servernames)
-    print(test.results.ping)
+    ping.config(text=test.results.ping)
     
 #icon
 image_icon = tk.PhotoImage(file='img/logo.png')
