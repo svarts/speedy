@@ -1,19 +1,10 @@
 # Speedy
 
-# Install speedtest:
+# Install libraries:
 ```sh
-pip install speedtest-cli
+pip install numpy pandas scikit-learn matplotlib seaborn
 ```
 or
 ```sh
-pip3 install speedtest-cli
-```
-
-# Run:
-```sh
-python main.py
-```
-or
-```sh
-python3 main.py
+pip3 install numpy pandas scikit-learn matplotlib seaborn
 ```
